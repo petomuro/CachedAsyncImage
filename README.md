@@ -4,6 +4,8 @@
 
 `CachedAsyncImage` is a SwiftUI view that loads and displays an image from a URL, using both in-memory and disk-based caching. It's optimized for performance and memory efficiency, designed to prevent unnecessary image reloads across sessions.
 
+It is designed to work seamlessly with `CustomImage`, providing a robust image pipeline.
+
 ## 🧱 Component Structure
 
 ### 🔄 ImageCacheManager
@@ -57,3 +59,21 @@ CachedAsyncImage(url: URL(string: "https://example.com/image.png")!) { image in
 }
 ```
 
+## 🌉 Integration with `CustomImage`
+
+`CachedAsyncImage` is the backend renderer for remote images used in the `CustomImage` component:
+
+```swift
+CustomImage.remote(
+    url: ...,
+    imageColor: ...,
+    placeholder: ...,
+    placeholderColor: ...
+).view()
+```
+
+👉 See the `CustomImage` Documentation for recommended usage and API details.
+
+## 🧭 Navigation
+
+See also: [CustomImage](https://github.com/petomuro/CustomImage/tree/main)
