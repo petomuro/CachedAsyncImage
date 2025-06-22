@@ -281,7 +281,7 @@ private final class ImageLoader: ObservableObject {
 
 /// A SwiftUI view that displays an image with memory + disk caching.
 /// Falls back to a placeholder while loading or a fallback view on failure.
-struct CachedAsyncImage<Content: View, Placeholder: View>: View {
+public struct CachedAsyncImage<Content: View, Placeholder: View>: View {
     @ObservedObject private var loader: ImageLoader
 
     private let content: (Image) -> Content
@@ -292,7 +292,7 @@ struct CachedAsyncImage<Content: View, Placeholder: View>: View {
     ///   - content: A closure to render the loaded image.
     ///   - placeholder: A view shown while the image is loading.
     ///   - failure: A view shown if the image fails to load.
-    init(
+    public init(
         url: URL,
         @ViewBuilder content: @escaping (Image) -> Content,
         @ViewBuilder placeholder: @escaping () -> Placeholder
@@ -302,7 +302,7 @@ struct CachedAsyncImage<Content: View, Placeholder: View>: View {
         self.placeholder = placeholder()
     }
 
-    var body: some View {
+    public var body: some View {
         Group {
             if let image = loader.image {
                 // Render successfully loaded image
